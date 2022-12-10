@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    lenguages
+{% endblock %}
+
+{% block header %}
+    Языки:
+{% endblock %}
+
+{% block content %}
+<div>
+    <ol>
+        {% for p in page_obj %}
+            <li>
+                <a href="/lenguag/{{p}}">{{p}}</a>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
+
+{% block footer %}
+    <p>{% include "pagination.html" %}</p>
+    <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+{% endblock %}

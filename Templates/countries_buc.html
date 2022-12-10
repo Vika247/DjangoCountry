@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   country_buc
+{% endblock %}
+
+{% block header %}
+    {{buc}}:
+{% endblock %}
+
+{% block content %}
+<div>
+    <ol>
+        {% for p in co %}
+            {% if p.country.0 == buc %}
+                <li>
+                    {{p.country}}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}
+
+{% block footer %}
+    <a href="{% url 'countries-list' %}"> Вернуться к списку стран </a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Country
+{% endblock %}
+
+{% block header %}
+    {{ id }}:
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for p in co %}
+        {% if p.country == id %}
+            <ol>
+                {% for j in p.languages %}
+                    <li>
+                        {{j}}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+    <a href="{% url 'countries-list' %}"> Вернуться к списку стран </a>
+{% endblock %}

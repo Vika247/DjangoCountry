@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Country_list
+{% endblock %}
+
+{% block header %}
+    Список стран:
+{% endblock %}
+
+{% block content %}
+<div style="
+    margin-bottom:10px;
+    float: center;
+    width: 750px;
+    margin: 1% 0 1% 0;
+    text-align: center;
+    word-spacing:8px;">
+    {% for p in s %}
+        <a href="/countries/{{p}}">{{p}}</a>
+    {% endfor %}
+</div>
+
+<div>
+    <ol>
+        {% for p in page_obj %}
+            <li >
+                <a href="/country/{{p}}">{{p}}</a>
+            </li>
+        {% endfor %}
+    </ol>
+ </div>
+{% endblock %}
+
+{% block footer %}
+    <p>{% include "pagination.html" %}</p>
+    <a href="{% url 'home' %}"> Вернуться на главную страницу </a>
+{% endblock %}
